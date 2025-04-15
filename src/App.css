@@ -1,0 +1,328 @@
+:root {
+  --primary-red: #e53e3e;
+  --primary-dark: #742a2a;
+  --accent-blue: #3182ce;
+  --accent-dark: #2c5282;
+  --success: #38a169;
+  --warning: #d69e2e;
+  --light-bg: #fff5f5;
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background: linear-gradient(135deg, #fee2e2 0%, #e6f0fd 100%);
+  min-height: 100vh;
+}
+.item-info {
+  font-weight: 500;
+  color: #333; 
+}
+
+.app-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.main-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  background: -webkit-linear-gradient(var(--primary-red), var(--primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: var(--accent-dark);
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid-container {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.panel {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.panel:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.panel-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.blood-icon {
+  color: var(--primary-red);
+}
+
+.blood-products {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .blood-products {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .blood-products {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.product-card {
+  background: linear-gradient(to right, white, #fff5f5);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  
+  background: radial-gradient(circle, rgba(229, 62, 62, 0.1) 0%, transparent 70%);
+  opacity: 0.2;
+  transform: rotate(15deg);
+}
+
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(229, 62, 62, 0.15);
+}
+
+.product-name {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--primary-dark);
+  margin-bottom: 0.25rem;
+}
+
+.product-price {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.cart-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  outline: none;
+}
+
+.btn-add {
+  background-color: var(--accent-blue);
+  color: white;
+  width: 100%;
+}
+
+.btn-add:hover {
+  background-color: var(--accent-dark);
+}
+
+.btn-order {
+  background-color: var(--success);
+  color: white;
+  margin-top: 1.25rem;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.btn-order:hover {
+  background-color: #2f855a;
+}
+
+.btn-order:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.cart-items {
+  list-style: none;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9fafb;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-left: 4px solid var(--primary-red);
+  color: #333; 
+}
+
+
+.cart-item:hover {
+  background-color: #f1f5f9;
+}
+
+.item-info {
+  font-weight: 500;
+}
+
+.btn-remove {
+  color: var(--primary-red);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-remove:hover {
+  color: var(--primary-dark);
+}
+
+.order-success {
+  background-color: #d1fae5;
+  border: 1px solid #6ee7b7;
+  color: #065f46;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.order-history {
+  margin-top: 1.5rem;
+}
+
+.history-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.history-list {
+  list-style: none;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 0.5rem;
+}
+
+.history-item {
+  padding: 0.5rem 0;
+  color: #0000;
+  font-size: 0.9rem;
+  border-bottom: 1px dashed #e5e7eb;
+}
+
+.blood-type-badge {
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--primary-red);
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 2.5rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10; 
+}
+
+
+.logo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  background-color: var(--primary-red);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  animation: pulse 2s infinite;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
